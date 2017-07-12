@@ -5,7 +5,19 @@
     border: 1px solid grey;
 }
 
+.TopicSpacer {
+    height: 10px;
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+    padding: 0px;
+}
+
 .UserName {
+    text-align: center;
+    width: 170px;
+    height: auto;
+}
+
+.PostControls {
     text-align: center;
     width: 170px;
     height: auto;

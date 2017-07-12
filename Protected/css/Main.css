@@ -1,2 +1,9 @@
 /* CSS Document */
 
+.UserOffline {
+    color: red;
+}
+
+.UserOnline {
+    color: green;
+}
