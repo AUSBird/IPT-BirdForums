@@ -1,0 +1,56 @@
+/* CSS Document */
+
+.Display-Topic {
+    text-align: left;
+    border: 1px solid grey;
+}
+
+.UserName {
+    text-align: center;
+    width: 170px;
+    height: auto;
+}
+
+.UserCard {
+    margin: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 185px;
+    /* border: 1px solid grey; */
+}
+
+.UserInfo {
+    width: 170px;
+    margin-top: 5px;
+}
+
+.ProfilePic {
+    display: block;
+    float: left;
+    text-align: center;
+    margin: auto;
+    border: 1px solid grey;
+    max-width: 170px;
+    max-height: 170px;
+}
+
+.ProfileCard {
+    overflow: auto;
+}
+
+.ContentCard {
+    width: 958px;
+    border-left: 1px solid grey;
+}
+
+.Left {
+    float: left
+}
+
+.Right {
+    float: right
+}
+
+.Clear {
+    clear: both
+}
