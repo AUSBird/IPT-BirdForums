@@ -1,20 +1,4 @@
-<!doctype html>
-<html>
-<head>
-    <!-- BootStrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <!-- Custom CSS -->
-    <link href="http://cairnssde.ipto.com.au/Student/tleac9/Bird%20Forums/Protected/NavBar.css" rel="stylesheet"
-          type="text/css">
-
-    <meta charset="utf-8">
-    <title>Untitled Document</title>
-</head>
-
-<body>
+<link href="Protected/NavBar.css" rel="stylesheet" type="text/css">
 <div class="container">
     <nav class="navbar navbar-default navbar-xs" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -46,5 +30,3 @@
         </div><!-- /.navbar-collapse -->
     </nav>
 </div>
-</body>
-</html>

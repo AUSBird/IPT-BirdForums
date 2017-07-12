@@ -7,6 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Custom CSS -->
+    <link href="Protected/css/Main.css" rel="stylesheet" type="text/css"/>
     <link href="Protected/css/index.css" rel="stylesheet" type="text/css">
     <link href="Protected/css/Forum.css" rel="stylesheet" type="text/css">
 
@@ -14,8 +15,7 @@
     <title>Bird Forums - Topic Name</title>
 </head>
 
-<body>
-<?php
+<body><?php
 include_once "Protected/NavBar.php";
 ?>
 

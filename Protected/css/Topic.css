@@ -12,7 +12,7 @@
 }
 
 .UserCard {
-    margin: auto;
+    vertical-align: top;
     padding-left: 5px;
     padding-right: 5px;
     width: 185px;
@@ -20,8 +20,15 @@
 }
 
 .UserInfo {
+    font-size: 85%;
     width: 170px;
+    height: auto;
+    background: #DEDFE2;
     margin-top: 5px;
+    border-top: 4px double grey;
+    border-bottom: 1px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
 }
 
 .ProfilePic {
@@ -32,6 +39,7 @@
     border: 1px solid grey;
     max-width: 170px;
     max-height: 170px;
+    margin-bottom: 5px;
 }
 
 .ProfileCard {
@@ -39,6 +47,7 @@
 }
 
 .ContentCard {
+    vertical-align: top;
     width: 958px;
     border-left: 1px solid grey;
 }
@@ -53,4 +62,12 @@
 
 .Clear {
     clear: both
+}
+
+.Overflow {
+    overflow: auto;
+}
+
+.UserInfoBadge {
+    margin: 2px 0px 2px 2px;
 }

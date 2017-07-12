@@ -7,6 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Custom CSS -->
+    <link href="Protected/css/Main.css" rel="stylesheet" type="text/css"/>
     <link href="Protected/css/index.css" rel="stylesheet" type="text/css">
     <link href="Protected/css/Topic.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
@@ -71,7 +72,7 @@ include_once "Protected/NavBar.php";
             </div>
 
             <div class="row">
-                <div class="col-xs-6 col-lg-12 Display-Topic">
+                <div class="col-xs-6 col-lg-12">
                     <table class="table Display-Topic">
                         <thead>
                         <tr>
@@ -84,25 +85,35 @@ include_once "Protected/NavBar.php";
                                 <span class="Left">Topic Started: July 11th 2017, 8:44PM (Views: 1,000,000)</span>
                                 <span class="Right">Edit Topic Title</span>
                             </th>
-                        </tr>
+                        </tr> <!-- Topic Info -->
                         <tr>
                             <td rowspan="1" class="UserCard Left">
-                                <div class="UserName">AssaultBird2454</div>
+                                <div class="UserName"><b>AssaultBird2454</b></div>
                             </td>
                             <td class="ContentCard">
                                 <div class="Left">Posted: July 11th 2017, 8:44PM</div>
                                 <div class="Right">Post #1</div>
                             </td>
-                        </tr>
+                        </tr> <!-- Post Info -->
                         <tr>
-                            <td rowspan="2" class="UserCard Left">
+                            <td class="UserCard" rowspan="2">
                                 <div class="Left ProfileCard"><img class="ProfilePic"
                                                                    src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png"/>
                                 </div>
-                                <div class="Clear UserInfo" style="background:grey; height:50px;"></div>
-                                <div class="Clear UserInfo" style="background:grey; height:50px;"></div>
+                                <div class="Clear UserInfo Overflow">
+                                    <span class="badge UserInfoBadge" style="background:#D7342A;">Owner</span>
+                                    <span class="badge UserInfoBadge" style="background:#1A7939;">Admin</span>
+                                    <span class="badge UserInfoBadge" style="background:#195080;">Moderator</span>
+                                    <span class="badge UserInfoBadge" style="background:#979C9F;">Member</span>
+                                </div>
+                                <div class="Clear UserInfo">
+                                    <p><b>Date Joined: </b> July 12th 2017</p>
+                                    <p><b>User ID: </b> 1</p>
+                                </div>
+                                <div class="Clear UserInfo">
+                                    <span class="badge UserInfoBadge " style="background:green;">No Warnings</span>
+                                </div>
                             </td>
-
                             <td class="ContentCard"><h2>Raising say express had chiefly detract demands she</h2>
 
                                 <p>Subjects to ecstatic children he. Could ye leave up as built match. Dejection
@@ -158,21 +169,12 @@ include_once "Protected/NavBar.php";
                                     dwelling dissuade if. Rent fond am he in on read. Anxious cordial demands settled
                                     entered in do to colonel.</p>
                             </td>
-                        </tr>
+                        </tr> <!-- Post and User Info -->
+                        <tr>
+                            <td class="ContentCard">User Signature Here</td>
+                        </tr> <!-- Post Signature -->
                         </tbody>
                     </table>
-                    <!--
-                                                <div>
-                                                    <h2>Topic 1 Name</h2>
-                                                    <h5>Topic Description</h5>
-                                                </div>
-                                                <br>
-                                                <div>
-                                                    <p>Topic Content</p>
-                                                </div>
-                                                <div class="Signature-Divider">
-                                                    <p>User Signature</p>
-                                                </div>-->
                 </div><!--/.col-xs-6.col-lg-4-->
             </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
@@ -190,12 +192,16 @@ include_once "Protected/NavBar.php";
 
 <!--
 						Topic Badges
-<span class="badge" style="background:green;">New</span>      <-- New Post Avaliable
-<span class="badge" style="background:orange;">Hot</span>     <-- Hot Post
-<span class="badge" style="background:purple;">Pinned</span>  <-- Pinned Post
-<span class="badge" style="background:grey;">Locked</span>    <-- Locked Post
-<span class="badge" style="background:grey;">Hidden</span>    <-- Hidden Post
-<span class="badge" style="background:red;">Reported</span>   <-- Reported Post or Reply
+<span class="badge UserInfoBadge " style="background:#D7342A;">Owner</span>      <-- Owner Post
+<span class="badge UserInfoBadge " style="background:#1A7939;">Admin</span>      <-- Admin Post
+<span class="badge UserInfoBadge " style="background:#195080;">Moderator</span>  <-- Mod Post
+<span class="badge UserInfoBadge " style="background:#979C9F;">Member</span>     <-- Member Post
+
+						ModInfo Badges
+<span class="badge UserInfoBadge " style="background:green;">No Warnings</span>  <-- No Warn
+<span class="badge UserInfoBadge " style="background:gold;">1 Warning</span>     <-- Low Warn
+<span class="badge UserInfoBadge " style="background:orange;">3 Warnings</span>  <-- Med Warn
+<span class="badge UserInfoBadge " style="background:red;">5 Warnings</span>     <-- High Warn
 
 						Template Profile Pics
 <div class="Left"><img class="ProfilePic" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png"/></div>

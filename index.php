@@ -2,8 +2,8 @@
 <html>
 <head>
     <!-- Links the main style sheet -->
-    <link type="text/css" href="Protected/css/Main.css"/>
-    <link type="text/css" href="/Student/tleac9/BirdForums/Protected/css/index.css"/>
+    <link href="Protected/css/Main.css" rel="stylesheet" type="text/css"/>
+    <link href="Protected/css/index.css" rel="stylesheet" type="text/css"/>
 
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
