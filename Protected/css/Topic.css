@@ -94,18 +94,3 @@
 .UserInfoBadge {
     margin: 2px 0px 2px 2px;
 }
-
-.PageSelecter {
-    background: #720001;
-    color: white;
-}
-
-.PageSelecter-Current {
-    background: #ffffff;
-    color: black;
-}
-
-.PageSelecterBar {
-    overflow: auto;
-    padding-bottom: 5px;
-}

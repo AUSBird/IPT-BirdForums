@@ -195,7 +195,8 @@ include_once "Protected/NavBar.php";
                                 <div class="Right">
                                     <button type="button" class="btn btn-sm btn-danger">Report</button>
                                     <button type="button" class="btn btn-sm btn-default">Quote</button>
-                                    <button type="button" class="btn btn-sm btn-default">BTT</button>
+                                    <button type="button" class="btn btn-sm btn-default"><span
+                                                class="glyphicon glyphicon-menu-up"/></button>
                                 </div>
                             </td>
                         </tr> <!-- Post Controls & User Opperations -->
@@ -253,7 +254,8 @@ include_once "Protected/NavBar.php";
                                 <div class="Right">
                                     <button type="button" class="btn btn-sm btn-danger">Report</button>
                                     <button type="button" class="btn btn-sm btn-default">Quote</button>
-                                    <button type="button" class="btn btn-sm btn-default">BTT</button>
+                                    <button type="button" class="btn btn-sm btn-default"><span
+                                                class="glyphicon glyphicon-menu-up"/></button>
                                 </div>
                             </td>
                         </tr> <!-- Post Controls & User Opperations -->
@@ -264,8 +266,16 @@ include_once "Protected/NavBar.php";
                     </table>
 
                     <div class="PageSelecterBar">
-                        <button type="button" class="btn btn-xs btn-default PageSelecter-Current Overflow">1</button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter Overflow">2</button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter"><span
+                                    class="glyphicon glyphicon-menu-left"/></button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter-Current">1</button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter">2</button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter">3</button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter">4</button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter">5</button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter">6</button>
+                        <button type="button" class="btn btn-xs btn-default PageSelecter"><span
+                                    class="glyphicon glyphicon-menu-right"/></button>
                     </div>
 
                 </div><!--/.col-xs-6.col-lg-4-->

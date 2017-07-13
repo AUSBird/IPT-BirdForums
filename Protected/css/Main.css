@@ -22,3 +22,18 @@
     color: white;
     background: #410001;
 }
+
+.PageSelecter {
+    background: #ffffff;
+    color: black;
+}
+
+.PageSelecter-Current {
+    background: #720001;
+    color: white;
+}
+
+.PageSelecterBar {
+    overflow: auto;
+    padding-bottom: 5px;
+}

@@ -137,6 +137,20 @@ include_once "Protected/NavBar.php";
                         <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
                 </table>
+
+                <div class="PageSelecterBar">
+                    <button type="button" class="btn btn-xs btn-default PageSelecter"><span
+                                class="glyphicon glyphicon-menu-left"/></button>
+                    <button type="button" class="btn btn-xs btn-default PageSelecter-Current">1</button>
+                    <button type="button" class="btn btn-xs btn-default PageSelecter">2</button>
+                    <button type="button" class="btn btn-xs btn-default PageSelecter">3</button>
+                    <button type="button" class="btn btn-xs btn-default PageSelecter">4</button>
+                    <button type="button" class="btn btn-xs btn-default PageSelecter">5</button>
+                    <button type="button" class="btn btn-xs btn-default PageSelecter">6</button>
+                    <button type="button" class="btn btn-xs btn-default PageSelecter"><span
+                                class="glyphicon glyphicon-menu-right"/></button>
+                </div>
+
             </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
     </div><!--/row-->
