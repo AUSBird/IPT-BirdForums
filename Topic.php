@@ -21,7 +21,7 @@ include_once "Protected/NavBar.php";
 
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9 col-lg-12">
+        <div class="col-lg-12">
             <p class="pull-right visible-xs">
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
             </p>
@@ -72,7 +72,7 @@ include_once "Protected/NavBar.php";
             </div>
 
             <div class="row">
-                <div class="col-xs-6 col-lg-12">
+                <div class="col-lg-12 Background">
                     <h4><b><a href="">Bird Forums</a> -> <a href="">Test Forum</a> -> <a href="">Topic 1</a></b></h4>
                     <table class="table Display-Topic">
                         <thead>
@@ -82,11 +82,16 @@ include_once "Protected/NavBar.php";
                         </thead>
                         <tbody>
                         <tr>
+                            <th colspan="2" class="TopicHeaderDiv"><span class="badge TopicHeader">Testing Topic 1; Just Purly Amazing Content</span>
+                            </th>
+                        </tr> <!-- Topic Info -->
+                        <tr>
                             <th colspan="2">
                                 <span class="Left">Topic Started: July 11th 2017, 8:44PM (Views: 1,000,000)</span>
                                 <span class="Right">Edit Topic Title</span>
                             </th>
                         </tr> <!-- Topic Info -->
+
                         <tr>
                             <td rowspan="1" class="UserCard Left">
                                 <div class="UserName"><b>AssaultBird2454</b></div>
@@ -309,6 +314,11 @@ include_once "Protected/NavBar.php";
                         </tr> <!-- Post Separator -->
                         </tbody>
                     </table>
+
+                    <div>
+                        <button type="button" class="btn btn-xs btn-default">1</button>
+                    </div>
+
                 </div><!--/.col-xs-6.col-lg-4-->
             </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->

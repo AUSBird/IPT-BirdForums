@@ -11,6 +11,17 @@
     padding: 0px;
 }
 
+.TopicHeader {
+    color: black;
+    background: #E0E0E0;
+    font-size: 140%;
+}
+
+.TopicHeaderDiv {
+    text-align: center;
+    background: linear-gradient(to bottom, #720001 0%, #410001 100%);
+}
+
 .UserName {
     text-align: center;
     width: 170px;
@@ -82,4 +93,12 @@
 
 .UserInfoBadge {
     margin: 2px 0px 2px 2px;
+}
+
+.PageSelecter {
+    background: #720001;
+}
+
+.PageSelecter-Current {
+    background: #ffffff;
 }
