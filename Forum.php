@@ -71,66 +71,70 @@ include_once "Protected/NavBar.php";
                 A Topic or Reply has been reported for moderation... Click to view Reports
             </div>-->
 
-            <div class="row Display-Forum">
+            <div class="row Display-Forum Background">
                 <table class="table">
                     <tr>
-                        <th>Topic Name</th>
-                        <th>Topic Description</th>
-                        <th>Created By</th>
-                        <th>Last Post</th>
+                        <th style="text-align: center;">Topic Name</th>
+                        <th style="text-align: center;">Topic Description</th>
+                        <th style="text-align: center;">Created By</th>
+                        <th style="text-align: center;">Last Post</th>
                     </tr>
                     <tr>
-                        <td>Topic 5 Name <span class="badge" style="background:green;">New</span> <span class="badge"
-                                                                                                        style="background:purple;">Pinned</span>
+                        <td class="Topic">Topic 5 Name <span class="badge" style="background:green;">New</span> <span
+                                    class="badge"
+                                    style="background:purple;">Pinned</span>
                         </td>
-                        <td>Description Goes Here</td>
-                        <td><a href="#">AssaultBird2454</a></td>
-                        <td><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
-                    </tr>
-                </table>
-                <br>
-                <table class="table">
-                    <tr>
-                        <th>Topic Name</th>
-                        <th>Topic Description</th>
-                        <th>Created By</th>
-                        <th>Last Post</th>
+                        <td class="Topic">Description Goes Here</td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
                     <tr>
-                        <td>Topic 1 Name <span class="badge" style="background:green;">New</span></td>
-                        <td>Description Goes Here</td>
-                        <td><a href="#">AssaultBird2454</a></td>
-                        <td><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                        <td class="TopicSpacer" colspan="4"></td>
                     </tr>
                     <tr>
-                        <td>Topic 2 Name <span class="badge" style="background:orange;">Hot</span></td>
-                        <td>Description Goes Here</td>
-                        <td><a href="#">AssaultBird2454</a></td>
-                        <td><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                        <th style="text-align: center;">Topic Name</th>
+                        <th style="text-align: center;">Topic Description</th>
+                        <th style="text-align: center;">Created By</th>
+                        <th style="text-align: center;">Last Post</th>
                     </tr>
                     <tr>
-                        <td>Topic 3 Name <span class="badge" style="background:green;">New</span> <span class="badge"
-                                                                                                        style="background:orange;">Hot</span>
+                        <td class="Topic">Topic 1 Name <span class="badge" style="background:green;">New</span></td>
+                        <td class="Topic">Description Goes Here</td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                    </tr>
+                    <tr>
+                        <td class="Topic">Topic 2 Name <span class="badge" style="background:orange;">Hot</span></td>
+                        <td class="Topic">Description Goes Here</td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                    </tr>
+                    <tr>
+                        <td class="Topic">Topic 3 Name <span class="badge" style="background:green;">New</span> <span
+                                    class="badge"
+                                    style="background:orange;">Hot</span>
                         </td>
-                        <td>Description Goes Here</td>
-                        <td><a href="#">AssaultBird2454</a></td>
-                        <td><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                        <td class="Topic">Description Goes Here</td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
                     <tr>
-                        <td>Topic 4 Name <span class="badge" style="background:green;">New</span> <span class="badge"
-                                                                                                        style="background:red;">Reported</span>
+                        <td class="Topic">Topic 4 Name <span class="badge" style="background:green;">New</span> <span
+                                    class="badge"
+                                    style="background:red;">Reported</span>
                         </td>
-                        <td>Description Goes Here</td>
-                        <td><a href="#">AssaultBird2454</a></td>
-                        <td><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                        <td class="Topic">Description Goes Here</td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
                     <tr>
-                        <td>Topic 6 Name <span class="badge" style="background:green;">New</span> <span class="badge"
-                                                                                                        style="background:grey;">Locked</span>
+                        <td class="Topic">Topic 6 Name <span class="badge" style="background:green;">New</span> <span
+                                    class="badge"
+                                    style="background:grey;">Locked</span>
                         </td>
-                        <td>Description Goes Here</td>
-                        <td><a href="#">AssaultBird2454</a></td>
-                        <td><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                        <td class="Topic">Description Goes Here</td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
                 </table>
             </div><!--/row-->

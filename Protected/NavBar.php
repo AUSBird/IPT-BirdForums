@@ -1,4 +1,5 @@
 <link href="Protected/NavBar.css" rel="stylesheet" type="text/css">
+
 <div class="container">
     <nav class="navbar navbar-default navbar-xs" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -13,10 +14,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-icons collapse navbar-collapse" id="Navbar_MoreOptions">
             <ul class="nav navbar-nav">
-                <li><a href="#"><i class="glyphicon glyphicon-bell"></i></a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-cog"></i></a></li>
-                <li class="dropdown">
+                <li><a href="#"><i class="glyphicon glyphicon-bell" style="color: inherit;"></i></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-user" style="color: inherit;"></i></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-cog" style="color: inherit;"></i></a></li>
+                <li class="dropdown" style="color: inherit;">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
                     <ul class="dropdown-menu pull-right">
                         <li><a href="#">Login</a></li>

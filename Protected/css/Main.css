@@ -7,3 +7,18 @@
 .UserOnline {
     color: green;
 }
+
+/* Color Scheme Classes */
+.CS-grade-default {
+    background: linear-gradient(to bottom, #720001 0%, #410001 100%);
+}
+
+.CS-static-primary {
+    color: white;
+    background: #720001;
+}
+
+.CS-static-secondary {
+    color: white;
+    background: #410001;
+}
