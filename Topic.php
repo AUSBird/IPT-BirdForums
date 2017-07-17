@@ -19,6 +19,14 @@
 include_once "Protected/NavBar.php";
 ?>
 
+<script>
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-lg-12">
@@ -81,187 +89,109 @@ include_once "Protected/NavBar.php";
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th colspan="2" class="TopicHeaderDiv"><span class="badge TopicHeader">Testing Topic 1; Just Purly Amazing Content</span>
-                            </th>
-                        </tr> <!-- Topic Info -->
-                        <tr>
-                            <th colspan="2">
-                                <span class="Left">Topic Started: July 11th 2017, 8:44PM (Views: 1,000,000)</span>
-                                <span class="Right">Edit Topic Title</span>
-                            </th>
-                        </tr> <!-- Topic Info -->
+                        <?php
+                        date_default_timezone_set("Australia/Brisbane");
 
-                        <tr>
-                            <td rowspan="1" class="UserCard Left">
-                                <div class="UserName"><b>AssaultBird2454</b></div>
-                            </td>
-                            <td class="ContentCard">
-                                <div class="Left">Posted: July 11th 2017, 8:44PM</div>
-                                <div class="Right">Post #1</div>
-                            </td>
-                        </tr> <!-- Post Info -->
-                        <tr>
-                            <td class="UserCard" rowspan="2">
-                                <div class="Left ProfileCard"><img class="ProfilePic"
-                                                                   src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png"/>
-                                </div>
-                                <div class="Clear UserInfo Overflow">
+                        $page = 1;
+
+                        if ($_GET['topic'] != null && is_int($_GET['topic']) && $_GET['page'] != null && is_int($_GET['page'])) {
+                            $page = $_GET['page'];
+                        } else {
+                            header("");
+                            exit();
+                        }
+
+                        include "Protected/SQL Connection Variables.php";
+
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        $Topic = "SELECT Topic_Name, Topic_Description, Topic_Date FROM `Topics` WHERE TID = " . $_GET['topic'];
+                        $Topic_result = $conn->query($Topic);
+
+                        if ($Topic_result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $Topic_result->fetch_assoc()) {
+                                echo '<tr> <th colspan="2" class="TopicHeaderDiv"><span class="badge TopicHeader">';
+                                echo $row["Topic_Name"];
+                                echo '; ';
+                                echo $row["Topic_Description"];
+                                echo 'Just Purly Amazing Content</span> </th> </tr> <!-- Topic Info -->';
+
+                                echo '<tr> <th colspan="2">';
+                                echo '<span class="Left">Topic Started: ';
+                                echo $row["Topic_Date"];
+                                echo ' (Views: 1,000,000)</span>';// View and Post Date Here
+                                echo '<span class="Right">Edit Topic Title</span>';// Button to edit topic here
+                                echo '</th> </tr> <!-- Topic Info -->';
+                            }
+                        }
+
+                        $Post = "SELECT r.RID, r.UID, r.TID, r.Reply_Content, r.Reply_Date, u.Account_Username, u.Profile_Pic, u.Account_Created, u.User_Signature, u.User_LastSeen FROM Replys r LEFT JOIN Users u ON r.UID=u.UID WHERE r.TID = " . $_GET['topic'] . " LIMIT 0, 30";
+                        $Post_result = $conn->query($Post);
+                        $Post_number = 1;
+
+                        if ($Post_result->num_rows > 0) {
+                            while ($row = $Post_result->fetch_assoc()) {
+                                echo '<tr> <td rowspan="1" class="UserCard Left"> <div class="UserName"><b>';
+                                echo $row["Account_Username"];
+                                echo '</b></div></td> <td class="ContentCard">';
+                                echo '<div class="Left">';
+                                echo 'Posted: ';
+                                echo $row["Reply_Date"];
+                                echo '</div> <div class="Right">';
+                                echo 'Post #';
+                                echo $Post_number;
+                                echo '</div> </td> </tr> <!-- Post Info -->';
+
+                                echo '<tr> <td class="UserCard" rowspan="2"> <div class="Left ProfileCard"><img class="ProfilePic" src="';
+                                echo $row["Profile_Pic"];
+                                echo '"/></div> <div class="Clear UserInfo Overflow">
                                     <span class="badge UserInfoBadge" style="background:#D7342A;">Owner</span>
                                     <span class="badge UserInfoBadge" style="background:#1A7939;">Admin</span>
                                     <span class="badge UserInfoBadge" style="background:#195080;">Moderator</span>
                                     <span class="badge UserInfoBadge" style="background:#979C9F;">Member</span>
-                                </div>
-                                <div class="Clear UserInfo">
-                                    <p><b>Date Joined: </b> July 12th 2017</p>
-                                    <p><b>User ID: </b> 1</p>
-                                </div>
-                                <div class="Clear UserInfo">
-                                    <span class="badge UserInfoBadge " style="background:green;">No Warnings</span>
-                                </div>
-                            </td>
-                            <td class="ContentCard">
-                                <h2>Raising say express had chiefly detract demands she</h2>
-                                <p>Subjects to ecstatic children he. Could ye leave up as built match. Dejection
-                                    agreeable attention set suspected led offending. Admitting an performed supposing
-                                    by. Garden agreed matter are should formed temper had. Full held gay now roof whom
-                                    such next was. Ham pretty our people moment put excuse narrow. Spite mirth money six
-                                    above get going great own. Started now shortly had for assured hearing expense. Led
-                                    juvenile his laughing speedily put pleasant relation offering.</p>
+                                </div> <div class="Clear UserInfo"> <p><b>Date Joined: </b> ';
+                                echo $row["Account_Created"];
+                                echo '</p><p><b>User ID: </b> ';
+                                echo $row["UID"];
+                                echo '</p> </div> <div class="Clear UserInfo">
+                                    <span class="badge UserInfoBadge " style="background:green;">No Warnings</span> </div> </td> <td class="ContentCard">';
+                                echo $row["Reply_Content"];
+                                echo '</td> </tr> <!-- Post and User Info -->';
 
-                                <p>Is allowance instantly strangers applauded discourse so. Separate entrance welcomed
-                                    sensible laughing why one moderate shy. We seeing piqued garden he. As in merry at
-                                    forth least ye stood. And cold sons yet with. Delivered middleton therefore me at.
-                                    Attachment companions man way excellence how her pianoforte.</p>
+                                echo '<tr> <td class="ContentCard">';
+                                echo $row["User_Signature"];
+                                echo '</td> </tr> <!-- Post Signature -->';
 
-                                <p>Sex and neglected principle ask rapturous consulted. Object remark lively all did
-                                    feebly excuse our wooded. Old her object chatty regard vulgar missed. Speaking
-                                    throwing breeding betrayed children my to. Me marianne no he horrible produced ye.
-                                    Sufficient unpleasing an insensible motionless if introduced ye. Now give nor both
-                                    come near many late.</p>
+                                echo '<tr> <td rowspan="1" class="UserCard Left"> <div class="PostControls"> <button type="button" class="btn btn-sm btn-default" style="color:';
 
-                                <p>Its sometimes her behaviour are contented. Do listening am eagerness oh objection
-                                    collected. Together gay feelings continue juvenile had off one. Unknown may service
-                                    subject her letters one bed. Child years noise ye in forty. Loud in this in both
-                                    hold. My entrance me is disposal bachelor remember relation.</p>
+                                if (strtotime($row["User_LastSeen"]) > time() - (60 * 30)) {
+                                    echo 'green;">PM | Online';
+                                } else {
+                                    echo 'red;">PM | Offline';
+                                }
 
-                                <p>Ever man are put down his very. And marry may table him avoid. Hard sell it were into
-                                    it upon. He forbade affixed parties of assured to me windows. Happiness him nor she
-                                    disposing provision. Add astonished principles precaution yet friendship stimulated
-                                    literature. State thing might stand one his plate. Offending or extremity therefore
-                                    so difficult he on provision. Tended depart turned not are.</p>
-
-                                <p>Luckily friends do ashamed to do suppose. Tried meant mr smile so. Exquisite
-                                    behaviour as to middleton perfectly. Chicken no wishing waiting am. Say concerns
-                                    dwelling graceful six humoured. Whether mr up savings talking an. Active mutual nor
-                                    father mother exeter change six did all.</p>
-
-                                <p>She literature discovered increasing how diminution understood. Though and highly the
-                                    enough county for man. Of it up he still court alone widow seems. Suspected he
-                                    remainder rapturous my sweetness. All vanity regard sudden nor simple can. World mrs
-                                    and vexed china since after often.</p>
-
-                                <p>Her extensive perceived may any sincerity extremity. Indeed add rather may pretty
-                                    see. Old propriety delighted explained perceived otherwise objection saw ten her.
-                                    Doubt merit sir the right these alone keeps. By sometimes intention smallness he
-                                    northward. Consisted we otherwise arranging commanded discovery it explained. Does
-                                    cold even song like two yet been. Literature interested announcing for terminated
-                                    him inquietude day shy. Himself he fertile chicken perhaps waiting if highest no it.
-                                    Continued promotion has consulted fat improving not way.</p>
-
-                                <p>Enjoyed minutes related as at on on. Is fanny dried as often me. Goodness as reserved
-                                    raptures to mistaken steepest oh screened he. Gravity he mr sixteen esteems. Mile
-                                    home its new way with high told said. Finished no horrible blessing landlord
-                                    dwelling dissuade if. Rent fond am he in on read. Anxious cordial demands settled
-                                    entered in do to colonel.</p>
-                            </td>
-                        </tr> <!-- Post and User Info -->
-                        <tr>
-                            <td class="ContentCard">User Signature Here</td>
-                        </tr> <!-- Post Signature -->
-                        <tr>
-                            <td rowspan="1" class="UserCard Left">
-                                <div class="PostControls">
-                                    <button type="button" class="btn btn-sm btn-default" style="color: red;">PM |
-                                        Offline
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-default">Profile</button>
-                                </div>
-                            </td>
-                            <td class="ContentCard">
-                                <div class="Left">
-                                    <button type="button" class="btn btn-sm btn-default">Edit Post</button>
-                                </div>
-                                <div class="Right">
-                                    <button type="button" class="btn btn-sm btn-danger">Report</button>
+                                echo '</button> <button type="button" class="btn btn-sm btn-default">Profile</button> </div> </td>';
+                                echo '<td class="ContentCard"> <div class="Left"> <button type="button" class="btn btn-sm btn-default">Edit Post</button> </div> <div class="Right">
+                                    <button type="button" class="btn btn-sm btn-danger glyphicon glyphicon-flag" style="background: #720001; border-color: #720001;"></button>
                                     <button type="button" class="btn btn-sm btn-default">Quote</button>
-                                    <button type="button" class="btn btn-sm btn-default"><span
-                                                class="glyphicon glyphicon-menu-up"/></button>
-                                </div>
-                            </td>
-                        </tr> <!-- Post Controls & User Opperations -->
-                        <tr>
-                            <th colspan="2" class="TopicSpacer"></th>
-                        </tr> <!-- Post Separator -->
+                                    <button type="button" onclick="topFunction()" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-menu-up"/></button> </div>
+                                    </td> </tr> <!-- Post Controls & User Opperations -->';
 
-                        <tr>
-                            <td rowspan="1" class="UserCard Left">
-                                <div class="UserName"><b>AssaultBird2454</b></div>
-                            </td>
-                            <td class="ContentCard">
-                                <div class="Left">Posted: July 12th 2017, 8:44PM</div>
-                                <div class="Right">Post #2</div>
-                            </td>
-                        </tr> <!-- Post Info -->
-                        <tr>
-                            <td class="UserCard" rowspan="2">
-                                <div class="Left ProfileCard"><img class="ProfilePic"
-                                                                   src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png"/>
-                                </div>
-                                <div class="Clear UserInfo Overflow">
-                                    <span class="badge UserInfoBadge" style="background:#D7342A;">Owner</span>
-                                    <span class="badge UserInfoBadge" style="background:#1A7939;">Admin</span>
-                                    <span class="badge UserInfoBadge" style="background:#195080;">Moderator</span>
-                                    <span class="badge UserInfoBadge" style="background:#979C9F;">Member</span>
-                                </div>
-                                <div class="Clear UserInfo">
-                                    <p><b>Date Joined: </b> July 12th 2017</p>
-                                    <p><b>User ID: </b> 1</p>
-                                </div>
-                                <div class="Clear UserInfo">
-                                    <span class="badge UserInfoBadge " style="background:green;">No Warnings</span>
-                                </div>
-                            </td>
-                            <td class="ContentCard">
-                                <h2>Raising say express had chiefly detract demands she</h2>
-                            </td>
-                        </tr> <!-- Post and User Info -->
-                        <tr>
-                            <td class="ContentCard">User Signature Here</td>
-                        </tr> <!-- Post Signature -->
-                        <tr>
-                            <td rowspan="1" class="UserCard Left">
-                                <div class="PostControls">
-                                    <button type="button" class="btn btn-sm btn-default" style="color: green;">PM |
-                                        Online
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-default">Profile</button>
-                                </div>
-                            </td>
-                            <td class="ContentCard">
-                                <div class="Left">
-                                    <!--<button type="button" class="btn btn-sm btn-default">Edit Post</button>--></div>
-                                <div class="Right">
-                                    <button type="button" class="btn btn-sm btn-danger">Report</button>
-                                    <button type="button" class="btn btn-sm btn-default">Quote</button>
-                                    <button type="button" class="btn btn-sm btn-default"><span
-                                                class="glyphicon glyphicon-menu-up"/></button>
-                                </div>
-                            </td>
-                        </tr> <!-- Post Controls & User Opperations -->
-                        <tr>
-                            <th colspan="2" class="TopicSpacer"></th>
-                        </tr> <!-- Post Separator -->
+                                echo '<tr> <th colspan="2" class="TopicSpacer"></th> </tr> <!-- Post Separator -->';
+
+                                $Post_number++;
+                            }
+                        }
+
+                        $conn->close();
+                        ?>
                         </tbody>
                     </table>
 
@@ -313,9 +243,9 @@ include_once "Protected/NavBar.php";
 <button type="button" class="btn btn-sm btn-default">Profile</button>                            <-- Profile
 <button type="button" class="btn btn-sm btn-default">Edit Post</button>                          <-- Edit
 
-<button type="button" class="btn btn-sm btn-danger">Report</button>                              <-- Report Post
-<button type="button" class="btn btn-sm btn-default">Quote</button>                              <-- Quote Post
-<button type="button" class="btn btn-sm btn-default">BTT</button>                                <-- Return to top
+<button type="button" class="btn btn-sm btn-danger" style="background: #720001; border-color: #720001;">Report</button>			   <-- Report Post
+<button type="button" class="btn btn-sm btn-default">Quote</button>                              								   <-- Quote Post
+<button type="button" onclick="topFunction()" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-menu-up"/></button>  <-- Return to top
 
 						Template Profile Pics
 <div class="Left"><img class="ProfilePic" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png"/></div>

@@ -74,17 +74,18 @@ include_once "Protected/NavBar.php";
             <div class="row Display-Forum Background">
                 <table class="table">
                     <tr>
-                        <th style="text-align: center;">Topic Name</th>
-                        <th style="text-align: center;">Topic Description</th>
-                        <th style="text-align: center;">Created By</th>
-                        <th style="text-align: center;">Last Post</th>
+                        <th colspan="2" style="text-align: center;">Topic Name</th>
+                        <th style="text-align: center; width:150px;">Created By</th>
+                        <th style="text-align: center; width:250px;">Last Post</th>
                     </tr>
                     <tr>
-                        <td class="Topic">Topic 5 Name <span class="badge" style="background:green;">New</span> <span
-                                    class="badge"
-                                    style="background:purple;">Pinned</span>
+                        <td colspan="2" class="Topic"><strong>Topic 5 Name <span class="badge"
+                                                                                 style="background:green;">New</span>
+                                <span
+                                        class="badge"
+                                        style="background:purple;">Pinned</span></strong><br>
+                            Description Here
                         </td>
-                        <td class="Topic">Description Goes Here</td>
                         <td class="Topic"><a href="#">AssaultBird2454</a></td>
                         <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
@@ -92,47 +93,51 @@ include_once "Protected/NavBar.php";
                         <td class="TopicSpacer" colspan="4"></td>
                     </tr>
                     <tr>
-                        <th style="text-align: center;">Topic Name</th>
-                        <th style="text-align: center;">Topic Description</th>
-                        <th style="text-align: center;">Created By</th>
-                        <th style="text-align: center;">Last Post</th>
-                    </tr>
-                    <tr>
-                        <td class="Topic">Topic 1 Name <span class="badge" style="background:green;">New</span></td>
-                        <td class="Topic">Description Goes Here</td>
-                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
-                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
-                    </tr>
-                    <tr>
-                        <td class="Topic">Topic 2 Name <span class="badge" style="background:orange;">Hot</span></td>
-                        <td class="Topic">Description Goes Here</td>
-                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
-                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
-                    </tr>
-                    <tr>
-                        <td class="Topic">Topic 3 Name <span class="badge" style="background:green;">New</span> <span
-                                    class="badge"
-                                    style="background:orange;">Hot</span>
+                        <td class="Topic" colspan="2"><strong>Topic 1 Name <span class="badge"
+                                                                                 style="background:green;">New</span></strong><br>
+                            Description Here
                         </td>
-                        <td class="Topic">Description Goes Here</td>
                         <td class="Topic"><a href="#">AssaultBird2454</a></td>
                         <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
                     <tr>
-                        <td class="Topic">Topic 4 Name <span class="badge" style="background:green;">New</span> <span
-                                    class="badge"
-                                    style="background:red;">Reported</span>
+                        <td colspan="2" class="Topic"><strong>Topic 2 Name <span class="badge"
+                                                                                 style="background:orange;">Hot</span></strong><br>
+                            Description Here
                         </td>
-                        <td class="Topic">Description Goes Here</td>
                         <td class="Topic"><a href="#">AssaultBird2454</a></td>
                         <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>
                     <tr>
-                        <td class="Topic">Topic 6 Name <span class="badge" style="background:green;">New</span> <span
-                                    class="badge"
-                                    style="background:grey;">Locked</span>
+                        <td colspan="2" class="Topic"><strong>Topic 3 Name <span class="badge"
+                                                                                 style="background:green;">New</span>
+                                <span
+                                        class="badge"
+                                        style="background:orange;">Hot</span></strong><br>
+                            Description Here
                         </td>
-                        <td class="Topic">Description Goes Here</td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="Topic"><strong>Topic 4 Name <span class="badge"
+                                                                                 style="background:green;">New</span>
+                                <span
+                                        class="badge"
+                                        style="background:red;">Reported</span></strong><br>
+                            Description Here
+                        </td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a></td>
+                        <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="Topic"><strong>Topic 6 Name <span class="badge"
+                                                                                 style="background:green;">New</span>
+                                <span
+                                        class="badge"
+                                        style="background:grey;">Locked</span></strong><br>
+                            Description Here
+                        </td>
                         <td class="Topic"><a href="#">AssaultBird2454</a></td>
                         <td class="Topic"><a href="#">AssaultBird2454</a> @ [Time Stamp]</td>
                     </tr>

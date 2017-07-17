@@ -10,7 +10,7 @@
 
 /* Color Scheme Classes */
 .CS-grade-default {
-    background: linear-gradient(to bottom, #720001 0%, #410001 100%);
+    background: linear-gradient(to bottom, #720001 85%, #410001 100%);
 }
 
 .CS-static-primary {
