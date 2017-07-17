@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 17, 2017 at 05:10 PM
+-- Generation Time: Jul 14, 2017 at 03:11 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `Replys` (
   PRIMARY KEY (`RID`),
   KEY `Users_Replys_FK1` (`UID`),
   KEY `Topics_Replys_FK1` (`TID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -173,13 +173,10 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `Account_Salt` varchar(1024) NOT NULL,
   `User_Dissabled` tinyint(1) NOT NULL DEFAULT '0',
   `User_Timeout` datetime NOT NULL,
-  `Account_Created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `User_LastSeen` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `Profile_Pic` text NOT NULL,
-  `User_Signature` text,
   PRIMARY KEY (`UID`),
   UNIQUE KEY `Users_AK1` (`Account_Username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9157 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 

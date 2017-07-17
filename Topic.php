@@ -93,14 +93,21 @@ include_once "Protected/NavBar.php";
                         date_default_timezone_set("Australia/Brisbane");
 
                         $page = 1;
-
-                        if ($_GET['topic'] != null && is_int($_GET['topic']) && $_GET['page'] != null && is_int($_GET['page'])) {
+                        if (isset($_GET['page'])) {
                             $page = $_GET['page'];
-                        } else {
-                            header("");
+                        }
+                        if (!isset($_GET['topic'])) {
                             exit();
                         }
 
+                        $display = 30;
+                        $page_Count = 1;
+
+                        $display_StartLimit = ($display * $page) - 30;
+                        $display_EndLimit = $display_StartLimit + 30;
+                        $display_Total = 1;
+
+                        // Loads Connection Settings
                         include "Protected/SQL Connection Variables.php";
 
                         // Create connection
@@ -111,7 +118,20 @@ include_once "Protected/NavBar.php";
                             die("Connection failed: " . $conn->connect_error);
                         }
 
-                        $Topic = "SELECT Topic_Name, Topic_Description, Topic_Date FROM `Topics` WHERE TID = " . $_GET['topic'];
+                        $Topic_Count = "SELECT Count(RID) AS Count FROM Replys WHERE TID = " . $_GET["topic"];
+                        $Topic_Count_result = $conn->query($Topic_Count);
+
+                        if ($Topic_Count_result->num_rows == 1) {
+                            // output data of each row
+                            $row = $Topic_Count_result->fetch_assoc();
+
+                            $display_Total = $row["Count"];
+                            $page_Count = ceil($display_Total / $display);
+                        } else {
+
+                        }
+
+                        $Topic = "SELECT Topic_Name, Topic_Description, Topic_Date, Topic_Views FROM `Topics` WHERE TID = " . $_GET['topic'];
                         $Topic_result = $conn->query($Topic);
 
                         if ($Topic_result->num_rows > 0) {
@@ -121,20 +141,24 @@ include_once "Protected/NavBar.php";
                                 echo $row["Topic_Name"];
                                 echo '; ';
                                 echo $row["Topic_Description"];
-                                echo 'Just Purly Amazing Content</span> </th> </tr> <!-- Topic Info -->';
+                                echo '</span> </th> </tr> <!-- Topic Info -->';
 
                                 echo '<tr> <th colspan="2">';
                                 echo '<span class="Left">Topic Started: ';
                                 echo $row["Topic_Date"];
-                                echo ' (Views: 1,000,000)</span>';// View and Post Date Here
+                                echo ' (Views: ';
+                                echo $row["Topic_Views"];
+                                echo ')</span>';// View and Post Date Here
                                 echo '<span class="Right">Edit Topic Title</span>';// Button to edit topic here
                                 echo '</th> </tr> <!-- Topic Info -->';
                             }
+                        } else {
+
                         }
 
-                        $Post = "SELECT r.RID, r.UID, r.TID, r.Reply_Content, r.Reply_Date, u.Account_Username, u.Profile_Pic, u.Account_Created, u.User_Signature, u.User_LastSeen FROM Replys r LEFT JOIN Users u ON r.UID=u.UID WHERE r.TID = " . $_GET['topic'] . " LIMIT 0, 30";
+                        $Post = "SELECT r.RID, r.UID, r.TID, r.Reply_Content, r.Reply_Date, u.Account_Username, u.Profile_Pic, u.Account_Created, u.User_Signature, u.User_LastSeen FROM Replys r LEFT JOIN Users u ON r.UID=u.UID WHERE r.TID = " . $_GET['topic'] . " LIMIT " . $display_StartLimit . ", " . $display_EndLimit;
                         $Post_result = $conn->query($Post);
-                        $Post_number = 1;
+                        $Post_number = ($display_StartLimit + 1);
 
                         if ($Post_result->num_rows > 0) {
                             while ($row = $Post_result->fetch_assoc()) {
@@ -191,22 +215,35 @@ include_once "Protected/NavBar.php";
                         }
 
                         $conn->close();
-                        ?>
-                        </tbody>
-                    </table>
 
-                    <div class="PageSelecterBar">
-                        <button type="button" class="btn btn-xs btn-default PageSelecter"><span
-                                    class="glyphicon glyphicon-menu-left"/></button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter-Current">1</button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter">2</button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter">3</button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter">4</button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter">5</button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter">6</button>
-                        <button type="button" class="btn btn-xs btn-default PageSelecter"><span
-                                    class="glyphicon glyphicon-menu-right"/></button>
-                    </div>
+                        if ($page_Count >= 2) {
+                            echo '</tbody> </table> <div class="PageSelecterBar">';
+
+                            if (($_GET["page"] - 1) >= 1) {
+                                echo '<a href="Topic.php?topic=' . $_GET["topic"] . '&page=' . ($_GET["page"] - 1) . '" class="btn btn-xs btn-default PageSelecter"><span class="glyphicon glyphicon-menu-left"/></a>';
+                            } else {
+                                echo '<a href="Topic.php?topic=' . $_GET["topic"] . '&page=' . ($_GET["page"]) . '" class="btn btn-xs btn-default PageSelecter"><span class="glyphicon glyphicon-menu-left"/></a>';
+                            }
+
+                            $i = 1;
+                            while ($i <= $page_Count) {
+                                if ($i == $_GET["page"]) {
+                                    echo '<a href="Topic.php?topic=' . $_GET["topic"] . '&page=' . $i . '" class="btn btn-xs btn-default PageSelecter-Current">' . $i . '</a>';
+                                } else {
+                                    echo '<a href="Topic.php?topic=' . $_GET["topic"] . '&page=' . $i . '" class="btn btn-xs btn-default PageSelecter">' . $i . '</a>';
+                                }
+
+                                $i++;
+                            }
+
+                            if (($_GET["page"] + 1) <= $page_Count) {
+                                echo '<a href="Topic.php?topic=' . $_GET["topic"] . '&page=' . ($_GET["page"] + 1) . '" class="btn btn-xs btn-default PageSelecter"><span class="glyphicon glyphicon-menu-right"/></a>';
+                            } else {
+                                echo '<a href="Topic.php?topic=' . $_GET["topic"] . '&page=' . ($_GET["page"]) . '" class="btn btn-xs btn-default PageSelecter"><span class="glyphicon glyphicon-menu-right"/></a>';
+                            }
+                            echo 'Displaying Post: ' . ($display_StartLimit + 1) . ' to ' . ($display_EndLimit + 1) . ' (' . $display_Total . ')</div>';
+                        }
+                        ?>
 
                 </div><!--/.col-xs-6.col-lg-4-->
             </div><!--/row-->
